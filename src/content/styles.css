@@ -1,0 +1,63 @@
+/* === Strategy 1: Inline annotations (wrapper span) === */
+.otonaguy-converted {
+  color: #2563eb;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+.otonaguy-amount .otonaguy-converted::before {
+  content: ' (';
+}
+
+.otonaguy-amount .otonaguy-converted::after {
+  content: ')';
+}
+
+/* === Strategy 2/3: ::after annotations (data attribute) === */
+.otonaguy-original[data-otonaguy-converted]::after {
+  content: attr(data-otonaguy-converted);
+  color: #2563eb;
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+/* === Hide Original mode === */
+
+/* Strategy 1: hide the original text inside wrapper */
+[data-otonaguy-hide-original="true"] .otonaguy-amount .otonaguy-original {
+  display: none;
+}
+
+[data-otonaguy-hide-original="true"] .otonaguy-amount .otonaguy-converted {
+  color: inherit;
+  font-size: inherit;
+  opacity: inherit;
+}
+
+[data-otonaguy-hide-original="true"] .otonaguy-amount .otonaguy-converted::before {
+  content: none;
+}
+
+[data-otonaguy-hide-original="true"] .otonaguy-amount .otonaguy-converted::after {
+  content: ' ';
+}
+
+/* Strategy 2/3: hide original children, show ::after as replacement */
+[data-otonaguy-hide-original="true"] .otonaguy-original[data-otonaguy-converted] > * {
+  display: none !important;
+}
+
+[data-otonaguy-hide-original="true"] .otonaguy-original[data-otonaguy-converted]::after {
+  content: attr(data-otonaguy-converted-bare);
+  color: inherit;
+  font-size: inherit;
+  opacity: inherit;
+}
+
+/* === Blur mode === */
+[data-otonaguy-hidden="true"] .otonaguy-amount,
+[data-otonaguy-hidden="true"] .otonaguy-original[data-currency-converted] {
+  filter: blur(8px);
+  user-select: none;
+  cursor: default;
+}
