@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>otonaguy</title>
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <h1 class="popup-title">otonaguy</h1>
+
+    <div class="field toggle-field">
+      <label for="random-toggle">Random Currency</label>
+      <label class="switch">
+        <input type="checkbox" id="random-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="field" id="target-field">
+      <label for="target-currency">Convert to</label>
+      <select id="target-currency"></select>
+    </div>
+
+    <div class="field toggle-field">
+      <label for="hide-original-toggle">Hide Original</label>
+      <label class="switch">
+        <input type="checkbox" id="hide-original-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="field toggle-field">
+      <label for="hide-toggle">Blur Amounts</label>
+      <label class="switch">
+        <input type="checkbox" id="hide-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="field toggle-field">
+      <label for="enable-toggle">Enable</label>
+      <label class="switch">
+        <input type="checkbox" id="enable-toggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <script type="module" src="./index.ts"></script>
+</body>
+</html>
