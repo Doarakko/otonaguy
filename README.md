@@ -1,6 +1,10 @@
 # otonaguy
 
-Chrome extension that converts currency amounts on web pages to a random currency.
+A Chrome extension that converts prices on web pages into random currencies or hides them entirely.
+
+Stop worrying about the price — just buy them all!
+
+![sample](sample.png)
 
 ## Build
 
