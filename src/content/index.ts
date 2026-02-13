@@ -153,14 +153,23 @@ function hidePointElements(root: Node): void {
 
     // Climb to find a reasonable container
     for (let i = 0; i < 3 && el.parentElement; i++) {
-      const parentLen = (el.parentElement.innerText || '').trim().length;
+      const parent = el.parentElement;
+      const parentLen = (parent.innerText || '').trim().length;
       if (parentLen > 80) break;
-      el = el.parentElement;
+      // Stop climbing if parent contains a converted price
+      if (parent.querySelector('[data-currency-converted]')) break;
+      el = parent;
     }
 
     // Only hide small-ish elements (point badges, not long descriptions)
+    // Never hide elements that contain or are converted prices
     const elText = (el.innerText || '').trim();
-    if (elText.length <= 80 && !el.hasAttribute('data-otonaguy-point-hidden')) {
+    if (
+      elText.length <= 80 &&
+      !el.hasAttribute('data-otonaguy-point-hidden') &&
+      !el.hasAttribute('data-currency-converted') &&
+      !el.querySelector('[data-currency-converted]')
+    ) {
       toHide.add(el);
     }
   }
