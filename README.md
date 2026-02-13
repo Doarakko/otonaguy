@@ -4,7 +4,9 @@ A Chrome extension that converts prices on web pages into random currencies or h
 
 Stop worrying about the price — just buy them all!
 
-![sample](sample.png)
+![Screenshot on Amazon](sample.png)
+
+Screenshot from [Amazon.co.jp](https://www.amazon.co.jp/). All product images and trademarks belong to their respective owners.
 
 ## Build
 
